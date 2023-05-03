@@ -1,0 +1,146 @@
+:root {
+   /* --accent: #EA9010; */
+   --secondary: #00A896;
+   --primary: #C200FB;
+   --light: #E6E6E6; /* platinum */
+   --dark: #39393A; /* jet */
+   --darkest: #1f1f1f;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   height: 100%;
+   font-family: monaco, Consolas, Lucida Console, monospace;
+   color: var(--light);
+   text-align: center;
+   background-color: white;
+}
+
+#root {
+   margin: 0 auto;
+   background-color: var(--dark);
+}
+
+h1 { 
+   font-size: 2.2em; 
+} 
+     
+h2 { 
+   font-size: 2.0em;     
+} 
+     
+h3 { 
+   font-size: 1.8em; 
+} 
+     
+h4 { 
+   font-size: 1.6em;     
+} 
+     
+h5 { 
+   font-size: 1.4em;     
+} 
+     
+p { 
+   font-size: 1.2em;     
+}
+
+a {
+   text-decoration: none;
+}
+
+button {
+   font: inherit;
+   display: block;
+   text-decoration: none;
+   border: 1px solid var(--primary);
+   border-radius: 2px;
+   padding: 0.6rem 2rem;
+   margin: 12px auto;
+   color: var(--light);
+   background-color: var(--primary);
+   transition: border 100ms ease-in-out;
+}
+button:hover, button:focus {
+   border: 1px solid var(--light);
+}
+
+.btn-small {
+   background-color: transparent;
+   border: none;
+   color: var(--secondary);
+   padding: 0.1rem 0.2rem;
+   margin: 0;
+   display: inline;
+   
+}
+.btn-small:hover {
+   color: var(--light);
+   background-color: var(--secondary);
+   border: none;
+}
+
+.center {
+   height: calc(100vh - 80px);
+   margin-top: 80px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.form-content {
+   background-color: var(--darkest);
+   border-radius: 3px;
+   width: 340px;
+   padding: 1rem;
+}
+
+.form-error {
+   color: var(--secondary);
+}
+
+.content {
+   height: calc(100vh - 80px);
+   margin-top: 80px;
+}
+
+.spotify {
+   background-color: var(--secondary);
+   border-color: var(--secondary);
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+  float: left;
+  padding: 24px;
+  border: 1px solid var(--primary);
+}
+
+.left {float: left;}
+.right {float: right;}
+
+.h-100 {height: 100%}
+.h-50 {height: 50%}

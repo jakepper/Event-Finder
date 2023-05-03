@@ -1,0 +1,44 @@
+.text-input-group {
+   position: relative;
+   margin-top: 12px;
+   margin-bottom: 1.25em;
+   width: 100%;
+   height: 32px;
+}
+
+.text-input-group input {
+   font: inherit;
+   color: var(--light);
+   background: none;
+   border: 0;
+   border-bottom: 2px solid var(--light);
+   outline: none;
+}
+
+.text-input-group label {
+   position: absolute;
+   top: 0;
+   left: 0;
+   font: inherit;
+   cursor: text;
+   display: flex;
+   align-items: center;
+   transition: all 250ms ease-in-out;
+}
+
+.text-input-group input, label {
+   width: 100%;
+   height: 100%;
+}
+
+.text-input-group input:focus + label,
+.text-input-group input:not(:placeholder-shown) + label {
+   top: -22px;
+   pointer-events: none;
+}
+.text-input-group input:focus {
+   border-bottom: 2px solid var(--primary);
+}
+.text-input-group input:focus + label {
+   color: var(--primary);
+}
