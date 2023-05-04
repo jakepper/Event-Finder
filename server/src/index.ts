@@ -1,3 +1,4 @@
+import * as path from 'path';
 import dotenv from "dotenv";
 import express from "express";
 import http from "http";
@@ -13,12 +14,19 @@ import { EventsController } from "./controllers/EventsController";
 import LoginBody from "./types/Login";
 import { User } from "./types/User";
 
+dotenv.config();
+var env = process.env.NODE_ENV || 'development';
+
 // INITIALIZE EXPRESS SERVER //
 
-dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+if (env == 'development') {
+   app.use(cors());
+}
+else {
+   app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+}
 const server = http.createServer(app);
 
 // INITIALIZE MONGODB CLIENT //
@@ -32,13 +40,17 @@ const client = new MongoClient(process.env.MONGODB_URI!!, {
 });
 
 // INITIALIZE SOCKET.IO //
-
-const io = new Server(server, {
-   cors: {
-      origin: "http://127.0.0.1:5000",
-      methods: ["GET", "POST"]
+let options = {}
+if (env == 'development') {
+   options = {
+      cors: {
+         // origin: "http://127.0.0.1:5000",
+         origin: "http://localhost:5000",
+         methods: ["GET", "POST"]
+      }
    }
-});
+}
+const io = new Server(server, options);
 
 // SOCKET.IO EVENTS //
 
@@ -116,6 +128,14 @@ UsersController(app, client);
 // events/add : Create Event
 // ---------------------------------------
 EventsController(app, client);
+
+// SERVE REACT APP (production)
+
+if (env == 'production') {
+   app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
+   });
+}
 
 // START SERVER //
 server.listen(process.env.PORT || 3000, () => {

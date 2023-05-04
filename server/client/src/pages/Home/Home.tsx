@@ -1,6 +1,7 @@
 import "./Home.css";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useApi } from "../../hooks/useApi";
 import EventCard from "../../components/EventCard/EventCard";
@@ -8,6 +9,7 @@ import EventCard from "../../components/EventCard/EventCard";
 export default function HomePage() {
 
    const api = useApi();
+   const navigate = useNavigate();
 
    const [events, setEvents] = useState<Record<string,any>[]>([]);
 
@@ -24,10 +26,19 @@ export default function HomePage() {
    }, []);
 
    return (
-      <div className="center">
-         <div className="content">
-            {events.map(event => <div key={event._id} className="event"><EventCard event={event} /></div>)}
+      <div className="content">
+         <div className="home-header">
+            <button onClick={() => navigate("/event-finder/create-event")}>Add Event</button>
          </div>
+         <section className="grid">
+            {events.map(event => (
+               <div key={event._id} className="card"
+                  onClick={() => navigate(`/event-finder/event/${event._id}`)}
+               >
+                  <EventCard event={event} />
+               </div>
+            ))}
+         </section>
       </div>
    );
 }

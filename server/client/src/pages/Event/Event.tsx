@@ -35,7 +35,7 @@ export default function EventPage() {
 
    const api = useApi();
    const { id } = useParams();
-   const { loggedIn, user } = useOutletContext<OutletContext>();
+   const { loggedIn, user, page } = useOutletContext<OutletContext>();
    const scrollRef = useRef<HTMLDivElement | null>(null);
 
    const [connected, setConnected] = useState(socket.connected);
@@ -53,6 +53,7 @@ export default function EventPage() {
    }
 
    useEffect(() => {
+      page[1]('');
       loadEvent();
 
       socket.connect();
@@ -110,7 +111,7 @@ export default function EventPage() {
 
    return (
       <div className="content">
-         <div className="row h-100">
+         <div className="h-100">
             <div className="col-5 h-100">
                <div className="messages">
                   {messages.map((message: Message) => {
@@ -132,14 +133,15 @@ export default function EventPage() {
                </form>
             </div>
             <div className="col-7 h-100">
-               <div className="row h-50">
-                  <div className="col-12 h-100">
-                     <h1>{event?.name}</h1>
-                     <h1>{event?.artist} @ {event?.venue}</h1>
-                     <h2>{new Date(event?.date).toUTCString()}</h2>
+               <div className="event-details row h-50">
+                  <div className="text col-12 h-100">
+                     <a href={event?.url}><h1>{event?.name}</h1></a>
+                     <p>{event?.artist} @ {event?.venue}</p>
+                     <p>{new Date(event?.date).toUTCString()}</p>
+                     <p>{`${event?.location.address}, ${event?.location.city}, ${event?.location.state}, ${event?.location.code}`}</p>
                   </div>
                </div>
-               <div className="row h-50">
+               <div className="event-map row h-50">
                   {event && <Map location={event?.location} />}
                </div>
             </div>

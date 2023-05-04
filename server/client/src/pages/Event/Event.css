@@ -1,3 +1,19 @@
+.event-details {
+   border-radius: 5px 5px 0 0;
+}
+
+.event-details .text {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+.event-map {
+   border-radius: 0 0 5px 5px;
+   overflow: hidden;
+}
+
 .messages {
    height: 94%;
    overflow-y: auto;

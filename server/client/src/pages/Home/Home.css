@@ -1,0 +1,17 @@
+.card-date {
+    font-size: 14px;
+    padding-top: 0.8rem;
+    color: var(--dark);
+}
+
+.home-header {
+    padding: 0 1rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-header button {
+    width: 100%;
+    margin: 0;
+}

@@ -7,7 +7,7 @@ import OutletContext from "../../types/OutletContext";
 
 export default function Login() {
 
-   const { loggedIn, user,  } = useOutletContext<OutletContext>();
+   const { loggedIn, user, page} = useOutletContext<OutletContext>();
 
    return (
       <div className="center">

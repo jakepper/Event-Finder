@@ -1,12 +1,12 @@
 {
-  "name": "usu-4610-simple-server",
+  "name": "event-finder",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "cd src && tsc",
     "dev": "nodemon src/index.ts",
-    "prod": "node dist/index.js"
+    "build": "cd src && tsc",
+    "prod": "NODE_ENV='production' node dist/index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

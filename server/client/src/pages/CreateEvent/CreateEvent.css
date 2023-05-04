@@ -1,0 +1,17 @@
+.date-input {
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100%;
+}
+
+.time-input {
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100%;
+}

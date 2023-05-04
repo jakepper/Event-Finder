@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createBrowserRouter, Navigate, RouterProvider, useLocation } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import { ApiContext } from "./contexts/api";
 import { Api } from "./lib/api";

@@ -38,31 +38,28 @@ export default function Root() {
    return (
       <>
          <div className="navbar">
-            <Link to="/event-finder/home"><h1>EVENT FINDER</h1></Link>
+            <Link to="/event-finder/home"><h1>Event Finder</h1></Link>
             <nav>
                <ul className="nav-items">
                   <li className={page == 'home' ? 'active' : ''} onClick={() => setPage('home')}>
-                        <Link to="/event-finder/home">HOME</Link>
-                  </li>
-                  <li className={page == 'about' ? 'active' : ''} onClick={() => setPage('about')}>
-                     <Link to="/event-finder/home">ABOUT</Link>
+                        <Link to="/event-finder/home">Home</Link>
                   </li>
                   {
                      loggedIn ? 
                      <li onClick={logout}>
-                        <Link to="/event-finder/login">LOGOUT</Link>
+                        <Link to="/event-finder/login">Logout</Link>
                      </li>
                      : <li onClick={login}>
-                        <Link to="/event-finder/login">LOGIN</Link>
+                        <Link to="/event-finder/login">Login</Link>
                      </li>
                   }
                   <li>
-                     <button className="spotify">Acivate Spotify</button>
+                     <button className="spotify">Activate Spotify</button>
                   </li>
                </ul>
             </nav>
          </div>
-         <Outlet context={{loggedIn: [loggedIn, setLoggedIn], user: [user, setUser]}} />
+         <Outlet context={{loggedIn: [loggedIn, setLoggedIn], user: [user, setUser], page: [page, setPage]}} />
       </>
    );
 }
