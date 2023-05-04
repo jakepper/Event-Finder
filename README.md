@@ -2,4 +2,4 @@
 
 ## Music Event Finder
 
-see [server/README.md](./server/README.md) for instructions
+see [server](./server/) for instructions.
