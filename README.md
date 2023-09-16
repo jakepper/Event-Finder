@@ -1,6 +1,6 @@
 # CS4610 Final Project (Web App)
 
-## Event Finder (
+## Event Finder (Music/Show/Concert/etc.)
 
 see [server](./server/) for instructions.
 
