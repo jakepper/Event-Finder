@@ -6,4 +6,4 @@ see [server](./server/) for instructions.
 
 ## Technologies
 
-`Typescript` `Node.js/express`  `MongoDB` `React` `Mapbox`
+`Node.js` `Typescript` `express`  `MongoDB` `React` `Mapbox`
