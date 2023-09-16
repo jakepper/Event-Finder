@@ -1,5 +1,9 @@
-# CS4610 Final Project
+# CS4610 Final Project (Web App)
 
-## Music Event Finder
+## Event Finder (
 
 see [server](./server/) for instructions.
+
+## Technologies
+
+`Typescript` `Node.js/express`  `MongoDB` `React` `Mapbox`
